@@ -34,7 +34,7 @@ declare module angular.animate {
         * @param element If provided then the element will be used to represent the enable/disable operation.
         * @returns current animation state
         */
-        enabled(value?: boolean, element?: JQuery): boolean;
+        enabled(element?: JQuery, value?: boolean): boolean;
 
         /**
          * Performs an inline animation on the element.
