@@ -1432,6 +1432,7 @@ declare module angular {
          * Transform function or an array of such functions. The transform function takes the http request body and
          * headers and returns its transformed (typically serialized) version.
          */
+        transformResponse?: ((data: any, headersGetter?: any) => any)|((data: any, headersGetter?: any) => any)[];
         transformRequest?: ((data: any, headersGetter?: any) => any)|((data: any, headersGetter?: any) => any)[];
         xsrfCookieName?: string;
         xsrfHeaderName?: string;
