@@ -5,6 +5,16 @@
 
 /// <reference path="../angularjs/angular.d.ts" />
 
+interface IonicStatic {
+    version: string;
+}
+
+declare var ionic: IonicStatic;
+
+declare module 'ionic' {
+    export = ionic;
+}
+
 declare module ionic {
     module actionSheet {
         interface IonicActionSheetService {
@@ -16,7 +26,7 @@ declare module ionic {
             cancelText?: string;
             destructiveText?: string;
             cancel?: ()=>any;
-            buttonClicked?: ()=>any;
+            buttonClicked?: (index: any)=>any;
             destructiveButtonClicked?: ()=>any;
             cancelOnStateChange?: boolean;
             cssClass?: string;
@@ -56,7 +66,7 @@ declare module ionic {
     }
     module loading {
         interface IonicLoadingService {
-            show(opts: IonicLoadingOptions): void;
+            show(opts?: IonicLoadingOptions): void;
             hide(): void;
         }
         interface IonicLoadingOptions {
@@ -205,7 +215,7 @@ declare module ionic {
             scrollBy(left: number, top: number, shouldAnimate?: boolean): void;
             zoomTo(level: number, animate?: boolean, originLeft?: number, originTop?: number): void;
             zoomBy(factor: number, animate?: boolean, originLeft?: number, originTop?: number): void;
-            getScrollPosition(): {left: number, top: number};
+            getScrollPosition(): {left: number; top: number};
             anchorScroll(shouldAnimate?: boolean): void;
             freezeScroll(shouldFreeze?: boolean): boolean;
             freezeAllScrolls(shouldFreeze?: boolean): boolean;
